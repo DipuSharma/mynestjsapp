@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="margin-left: 50px;">
+                    <h3>Status Report</h3>
+                    <% if (teachers.length> 0) { %>
+                        <% teachers.forEach(teacher=> {%>
+                        <h6><%= teacher.name %></h6>
+                        <h6><%= teacher.subject %></h6>
+                        <% }); %>
+                    <% } else { %> 
+                        <h6>Not Found </h6>    
+                    <% }; %>
+                    <h6>Data2</h6>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <center>
+                    <h2>Total Plan</h2>
+                    <table class="table" style="text-align: center;">
+                        
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>TeacherId</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (students.length> 0) { %>
+                                <% students.forEach(student=> {%>
+                                    <tr>
+                                        <td><%= student.id %></td>
+                                        <td><%= student.email %></td>
+                                        <td><%= student.name %></td>
+                                        <td><%= student.teacherId %></td>
+                                    </tr>
+                                    <% });%>
+							    <% }%>
+                        </tbody>
+                    </table>
+                </center>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <center>
+                    <h2>Complete Plan</h2>
+                    <table class="table" style="text-align: center;">
+                        
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>TeacherId</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (students.length> 0) { %>
+                                <% students.forEach(student=> {%>
+                                    <tr>
+                                        <td><%= student.id %></td>
+                                        <td><%= student.email %></td>
+                                        <td><%= student.name %></td>
+                                        <td><%= student.teacherId %></td>
+                                    </tr>
+                                    <% });%>
+							    <% }%>
+                        </tbody>
+                    </table>
+                </center>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <center>
+                    <h2>Pending Plan</h2>
+                    <table class="table" style="text-align: center;">
+                        
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>TeacherId</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (students.length> 0) { %>
+                                <% students.forEach(student=> {%>
+                                    <tr>
+                                        <td><%= student.id %></td>
+                                        <td><%= student.email %></td>
+                                        <td><%= student.name %></td>
+                                        <td><%= student.teacherId %></td>
+                                    </tr>
+                                    <% });%>
+							    <% }%>
+                        </tbody>
+                    </table>
+                </center>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
