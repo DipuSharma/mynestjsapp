@@ -23,8 +23,13 @@ export class UserController {
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signup(body.email, body.password);
-    session.userId = user.id;
-    return user;
+    // session.userId = user.id;
+    if (!user){
+      return "User not successfully created"
+    }
+    else {
+      return {'message':"User successfully created", 'data': user}
+    }
   }
 
   @Post('/signin')
@@ -40,7 +45,12 @@ export class UserController {
 
   @Post('/signout')
   signOut(@Session() session: any) {
+    if (!session){
+      return {'message':'User session not found.'}
+    }
+    console.log(session.userId)
     session.userId = null;
+    return "User logout successfully"
   }
   @Get('/:id')
   async findUser(@Param('id') id: string) {
@@ -51,9 +61,10 @@ export class UserController {
     return user;
   }
 
-  @Get('')
-  findAllUsers(@Query('email') email: string) {
-    return this.userService.find(email);
+  @Get('/')
+  async findAllUsers() {
+    const users = await this.userService.findAll;
+    return users
   }
 
   @Delete('/:id')

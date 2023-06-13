@@ -12,7 +12,7 @@ export class AuthService {
   async signup(email: string, password: string) {
     const users = await this.userService.find(email);
     if (users.length) {
-      throw new NotFoundException('email already exits.');
+      throw new NotFoundException('email already exits, please try to new email.');
     }
     const salt = randomBytes(8).toString('hex');
     const hash = (await scrypt(password, salt, 32)) as Buffer;

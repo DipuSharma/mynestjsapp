@@ -2,22 +2,26 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserService {
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
-  create(email: string, password: string) {
+  async create(email: string, password: string) {
     const user = this.repo.create({ email, password });
     return this.repo.save(user);
   }
-  findOne(id: number) {
+  async findOne(id: number) {
     if (!id) {
       return null;
     }
     return this.repo.findOne(id);
   }
-  find(email: string) {
+  async find(email: string) {
     return this.repo.find({ email });
+  }
+  async findAll(): Promise<User[]> {
+    return this.repo.find();
   }
   async update(id: number, attrs: Partial<User>) {
     const user = await this.findOne(id);
