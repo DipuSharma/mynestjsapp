@@ -1,6 +1,12 @@
 # compiled output
 /dist
 /node_modules
+# db
+.sqlite
+db.sqlite
+# environment
+.env
+
 
 # Logs
 logs
